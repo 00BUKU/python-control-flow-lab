@@ -17,9 +17,9 @@ letter = input("Enter a letter from the alphabet").lower()
 
 if letter in "a e i o u":                                                                
                                                                                          
-    print("The letter {letter} is a vowel")                                              
+    print(f"The letter {letter} is a vowel")                                              
 else:                                                                                    
-    print("The letter {letter} is a consonant")                                          
+    print(f"The letter {letter} is a consonant")                                          
                                                                                          
 #############################################################################
 
@@ -121,12 +121,11 @@ a = 0
 b = 1
 
 while term < 50:
-
    if term < 2:
-     print(f'term: {term} / number: {term}')
+     print(f'term: {term}/number:{term}')
    else: 
     num = a + b
-    print(f'term: {term} / number: {num}')
+    print(f'term: {term}/number:{num}')
     a = b
     b = num
     term += 1
@@ -156,24 +155,36 @@ while term < 50:
 # the day number falls within a certain range.
 
 
-month = input("Enter the month of the year (Jan - Dec) :")
-day = int(input ("Enter the day of the month"))
 
-if month in ("Jan", "Feb", "Mar"):
-    season = "winter"
-elif month in ("Apr", "May", "Jun"):
-    season = "spring"
-elif month in ("Jul", "Aug", "Sept"):
-    season = "summer"
+
+mo = input('Enter the month of the season (Jan - Dec): ')
+day = int(input('Enter the day of the month: '))
+if mo in ('Jan', 'Feb', 'Mar'):
+   season = 'Winter'
+elif mo in ('Apr', 'May', 'Jun'):
+   season = 'Spring'
+elif mo in ('Jul', 'Aug', 'Sep'):
+   season = 'Summer'
 else:
-	season = 'autumn'
-if (month == 'March') and (day > 19):
-	season = 'spring'
-elif (month == 'June') and (day > 20):
-	season = 'summer'
-elif (month == 'September') and (day > 21):
-	season = 'autumn'
-elif (month == 'December') and (day > 20):
-	season = 'winter'
+   season = 'Fall'
+if mo == 'Mar' and day > 19:
+   season = 'Spring'
+elif mo == 'Jun' and day > 20:
+   season = 'Summer'
+elif mo == 'Sep' and day > 21:
+   season = 'Fall'
+elif mo == 'Dec' and day > 20:
+   season = 'Winter'
+print(f'{mo} {day} is in {season}')
 
-print(f"{month} {day} is in {season}")
+mo = input('Enter the month of the year (Jan - Dec): ')
+day = int(input('Enter the day of the month: '))
+if mo in ('Dec', 'Jan', 'Feb'):
+   season = 'Fall' if mo == 'Dec' and day < 21 else 'Winter'
+elif mo in ('Mar', 'Apr', 'May'):
+   season = 'Winter' if mo == 'Mar' and day < 20 else 'Spring'
+elif mo in ('Jun', 'Jul', 'Aug'):
+   season = 'Spring' if mo == 'Jun' and day < 21 else 'Summer'
+else:
+   season = 'Summer' if mo == 'Sep' and day < 22 else 'Fall'
+print(f'{mo} {day} is in {season}')
